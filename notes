@@ -1,0 +1,8 @@
+
+
+
+rails generate scaffold user email:string crypted_password:string password_salt:string persistence_token:string --no-helper --no-assets --no-controller-specs --no-view-specs
+
+rails g model user_session
+
+rake db:migrate
