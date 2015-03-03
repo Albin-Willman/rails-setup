@@ -3,3 +3,4 @@ class User < ActiveRecord::Base
     c.require_password_confirmation = false
   end
 end
+

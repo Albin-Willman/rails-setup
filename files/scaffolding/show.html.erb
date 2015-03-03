@@ -1,0 +1,13 @@
+<%% content_for :content do %>
+  <div class="container">
+<% attributes.each do |attribute| -%>
+    <p>
+      <strong><%= attribute.human_name %>:</strong>
+      <%%= @<%= singular_table_name %>.<%= attribute.name %> %>
+    </p>      
+<% end -%>
+    
+    <%%= link_to 'Back', <%= plural_table_name %>_path, class: 'btn btn-primary' %>
+    <%%= link_to 'Edit', edit_<%= singular_table_name %>_path(@<%= singular_table_name %>), class: 'btn btn-primary' %>
+  </div>
+<%% end %>

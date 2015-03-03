@@ -1,0 +1,9 @@
+<%% content_for :content do %>
+  <div class="container">
+    <h1>New <%= singular_table_name.capitalize %></h1>
+
+    <%%= render 'form' %>
+
+    <%%= link_to 'Back', <%= plural_table_name %>_path %>
+  </div>
+<%% end %>
