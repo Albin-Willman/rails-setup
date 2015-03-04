@@ -1,0 +1,29 @@
+<% db_socket = ENV['DEV_MYSQL_SOCKET'] || '/tmp/mysql.sock' %>
+
+default: &default
+  adapter: mysql2
+  encoding: utf8
+  reconnect: false
+  pool: 5
+  username: APP_NAME
+  password: DATABASE_PWD
+  socket: /var/run/mysqld/mysqld.sock
+
+development:
+  <<: *default
+  username: root
+  database: APP_NAME_development
+  socket: <%= db_socket %>
+  password:
+
+test:
+  <<: *default
+  username: root
+  database: APP_NAME_test
+  socket: <%= db_socket %>
+  password:
+
+production:
+  <<: *default
+  database: APP_NAME_production
+
