@@ -32,17 +32,15 @@ rails g scaffold user email:string crypted_password:string password_salt:string 
 
 rm -r "app/controllers"
 mkdir app/controllers
-
-rm -r "app/models"
-mkdir app/models
-
-rm -r "app/views"
-mkdir app/views
-
 CONTROLLERS_PATH=$SCRIPT_PATH"/files/controllers/*.*"
 cp $CONTROLLERS_PATH "app/controllers/."
+
 CONTROLLERS_PATH=$SCRIPT_PATH"/files/models/*.*"
-cp $CONTROLLERS_PATH "app/controllers/."
+rm -r "app/models"
+mkdir app/models
+cp $CONTROLLERS_PATH "app/models/."
+
+rm -r "app/views"
 VIEWS_PATH=$SCRIPT_PATH"/files/views"
-cp -r $VIEWS_PATH "app/controllers/views"
+cp -r $VIEWS_PATH "app/"
 
