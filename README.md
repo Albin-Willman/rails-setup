@@ -1,10 +1,10 @@
-### RAILS setup
+# RAILS setup
 
 This is a small project to make it easier to setup new rails projects.
 
 This far it only works on my computer due to hard coded paths.
 
-## Usage
+### Usage
 
 ```bash
 bash setup.bash TestApp
