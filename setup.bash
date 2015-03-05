@@ -30,6 +30,9 @@ cp $SCAFFOLD_PATH "lib/templates/erb/scaffold/."
 
 rails g scaffold user email:string crypted_password:string password_salt:string persistence_token:string --no-helper --no-assets --no-controller-specs --no-view-specs
 
+rake db:create
+rake db:migrate
+
 rm -r "app/controllers"
 mkdir app/controllers
 CONTROLLERS_PATH=$SCRIPT_PATH"/files/controllers/*.*"
@@ -44,3 +47,14 @@ rm -r "app/views"
 VIEWS_PATH=$SCRIPT_PATH"/files/views"
 cp -r $VIEWS_PATH "app/"
 
+cat $SCRIPT_PATH"/files/assets/js/application.js" > app/assets/javascripts/application.js
+
+cat $SCRIPT_PATH"/files/assets/css/application.css" > app/assets/stylesheets/application.css
+STYLE_PATTERN=$SCRIPT_PATH"/files/assets/less/*.less"
+cp $STYLE_PATTERN app/assets/stylesheets/.
+
+echo "@import \"import\";" >> app/assets/stylesheets/bootstrap_and_overrides.css.less
+
+INITIALIZERS_PATH=$SCRIPT_PATH"/files/config/initializers"
+cp -r $INITIALIZERS_PATH config/.
+sed -i '' -- "s/USER_NAME/\"$USER\"/g" config/initializers/constants.rb
