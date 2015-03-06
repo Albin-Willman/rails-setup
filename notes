@@ -4,4 +4,5 @@
 - [ ] More advanced navbar
 - [ ] Better layout for scripts with more functions
 - [ ] Include nifty js-plugins
-- [ ] Variable for install-path and intellegent script path
+- [x] Variable for install-path
+- [ ] intellegent script path

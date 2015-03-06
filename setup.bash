@@ -4,7 +4,7 @@ shopt -s nullglob
 shopt -s dotglob # To include hidden files
 
 SCRIPT_PATH="/Users/Albin/sideprojects/rails-setup"
-INSTALL_PATH="/Users/Albin/sideprojects/tmp"
+INSTALL_PATH=${2-.}
 APP_NAME=$1
 
 cd $INSTALL_PATH
