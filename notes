@@ -2,7 +2,7 @@
 - [ ] CRUD for users
 - [ ] home_controller and landing_page
 - [ ] More advanced navbar
-- [ ] Better layout for scripts with more functions
+- [ ] Better layout of bash script using functions
 - [ ] Include nifty js-plugins
 - [x] Variable for install-path
-- [ ] intellegent script path
+- [x] intellegent script path

@@ -3,9 +3,9 @@ set -e
 shopt -s nullglob
 shopt -s dotglob # To include hidden files
 
-SCRIPT_PATH="/Users/Albin/sideprojects/rails-setup"
-INSTALL_PATH=${2-.}
 APP_NAME=$1
+INSTALL_PATH=${2-.}
+SCRIPT_PATH=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 
 cd $INSTALL_PATH
 rails new $APP_NAME
