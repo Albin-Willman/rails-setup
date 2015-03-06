@@ -2,8 +2,6 @@
 
 This is a small project to make it easier to setup new rails projects.
 
-This far it only works on my computer due to hard coded paths.
-
 ### Usage
 
 ```bash
