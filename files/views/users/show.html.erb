@@ -1,0 +1,23 @@
+<% content_for :content do %>
+  <div class="container">
+    <p>
+      <strong>Email:</strong>
+      <%= @user.email %>
+    </p>      
+    <p>
+      <strong>Crypted password:</strong>
+      <%= @user.crypted_password %>
+    </p>      
+    <p>
+      <strong>Password salt:</strong>
+      <%= @user.password_salt %>
+    </p>      
+    <p>
+      <strong>Persistence token:</strong>
+      <%= @user.persistence_token %>
+    </p>      
+    
+    <%= link_to 'Back', users_path, class: 'btn btn-primary' %>
+    <%= link_to 'Edit', edit_user_path(@user), class: 'btn btn-primary' %>
+  </div>
+<% end %>
