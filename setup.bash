@@ -18,7 +18,6 @@ git ignore tmp/**.*
 git ignore log/**.*
 
 cat $SCRIPT_PATH"/files/config/db_config" > config/database.yml
-cat $SCRIPT_PATH"/files/config/routes.rb" > config/routes.rb
 
 sed -i '' -- "s/APP_NAME/$APP_NAME/g" config/database.yml
 DB_PWD=`bash $SCRIPT_PATH/scripts/genpasswd.bash`
@@ -34,6 +33,8 @@ rails g scaffold user email:string crypted_password:string password_salt:string 
 
 rake db:create
 rake db:migrate
+
+cat $SCRIPT_PATH"/files/config/routes.rb" > config/routes.rb
 
 rm -r "app/controllers"
 CONTROLLERS_PATH=$SCRIPT_PATH"/files/controllers"
@@ -57,5 +58,3 @@ echo "@import \"import\";" >> app/assets/stylesheets/bootstrap_and_overrides.css
 INITIALIZERS_PATH=$SCRIPT_PATH"/files/config/initializers"
 cp -r $INITIALIZERS_PATH config/.
 sed -i '' -- "s/USER_NAME/\"$USER\"/g" config/initializers/constants.rb
-
-

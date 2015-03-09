@@ -2,8 +2,17 @@
   <div class="container">
     <h1>New User</h1>
 
-    <%= render 'form' %>
+    <%= simple_form_for(@user) do |f| %>
+      <%= f.error_notification %>
 
-    <%= link_to 'Back', users_path %>
+      <div class="form-inputs">
+        <%= f.input :email %>
+        <%= f.input :password %>
+      </div>
+
+      <div class="form-actions">
+        <%= f.button :submit %>
+      </div>
+    <% end %>
   </div>
 <% end %>
