@@ -18,8 +18,6 @@ git ignore tmp/**.*
 git ignore log/**.*
 
 cat $SCRIPT_PATH"/files/config/db_config" > config/database.yml
-cat $SCRIPT_PATH"/files/assets/js/application.js" > app/assets/javascripts/application.js
-cat $SCRIPT_PATH"/files/assets/css/application.css" > app/assets/stylesheets/application.css
 cat $SCRIPT_PATH"/files/config/routes.rb" > config/routes.rb
 
 sed -i '' -- "s/APP_NAME/$APP_NAME/g" config/database.yml
@@ -41,16 +39,18 @@ rm -r "app/controllers"
 CONTROLLERS_PATH=$SCRIPT_PATH"/files/controllers"
 cp -r $CONTROLLERS_PATH "app"
 
-MODELS_PATH=$SCRIPT_PATH"/files/models/*.*"
+MODELS_PATH=$SCRIPT_PATH"/files/models"
 rm -r "app/models"
-cp $MODELS_PATH "app/"
+cp -r $MODELS_PATH "app/"
 
 rm -r "app/views"
 VIEWS_PATH=$SCRIPT_PATH"/files/views"
 cp -r $VIEWS_PATH "app/"
 
-STYLE_PATTERN=$SCRIPT_PATH"/files/assets/less/*.less"
-cp $STYLE_PATTERN app/assets/stylesheets/.
+rm "app/assets/stylesheets/application.css"
+rm "app/assets/javascripts/application.js"
+ASSETS_PATH=$SCRIPT_PATH"/files/assets"
+cp -r $ASSETS_PATH "app/"
 
 echo "@import \"import\";" >> app/assets/stylesheets/bootstrap_and_overrides.css.less
 
