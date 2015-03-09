@@ -14,7 +14,7 @@
     <div class="navbar-collapse navbar-right first-navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li><%= link_to "Example", "#" %></li>
-        <%= if current_user %>
+        <% if current_user %>
           <li><%= link_to "Log out", logout_path %></li>
         <% else %>
           <li><%= link_to "Log in", login_path %></li>
