@@ -13,6 +13,8 @@ section {
 @size: 48px;
 @padding: 15px;
 @total: (@size + @padding*2 + 3px*2);
+@red: #8C1717;
+@blue-d: #094E77;
 .icon-box {
   text-align: center;
   i.icon {
@@ -26,5 +28,23 @@ section {
     margin-bottom: 15px;
     &.blue { border-color: @blue-d;}
     &.red  { border-color: @red;}
+  }
+}
+
+@media (min-width: @screen-md-min) {
+  .icon-box {
+    padding-left: 120px;
+    position: relative;
+    text-align: left;
+    i.icon {
+      position: absolute;
+      margin-top: -(@total/2);
+      top: 50%;
+      left: 0;
+      margin-bottom: 0;
+    }
+  }
+  .md-padded {
+    padding: 45px 90px;
   }
 }
