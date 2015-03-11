@@ -1,6 +1,6 @@
 
 - [x] CRUD for users
-- [ ] home_controller and landing_page
+- [x] home_controller and landing_page
 - [ ] More advanced navbar
 - [ ] Better layout of bash script using functions
 - [x] Include nifty js-plugins
