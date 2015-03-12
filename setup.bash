@@ -58,3 +58,7 @@ echo "@import \"import\";" >> app/assets/stylesheets/bootstrap_and_overrides.css
 INITIALIZERS_PATH=$SCRIPT_PATH"/files/config/initializers"
 cp -r $INITIALIZERS_PATH config/.
 sed -i '' -- "s/USER_NAME/\"$USER\"/g" config/initializers/constants.rb
+
+git add .
+git commit -m "Initial commit"
+
