@@ -59,6 +59,8 @@ INITIALIZERS_PATH=$SCRIPT_PATH"/files/config/initializers"
 cp -r $INITIALIZERS_PATH config/.
 sed -i '' -- "s/USER_NAME/\"$USER\"/g" config/initializers/constants.rb
 
+rm -r test/
+
 git add .
 git commit -m "Initial commit"
 
