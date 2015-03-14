@@ -23,17 +23,19 @@ sed -i '' -- "s/APP_NAME/$APP_NAME/g" config/database.yml
 DB_PWD=`bash $SCRIPT_PATH/scripts/genpasswd.bash`
 sed -i '' -- "s/DATABASE_PWD/$DB_PWD/g" config/database.yml
 
-rails generate bootstrap:install --no-coffeescript
-rails generate simple_form:install --bootstrap
-rails generate rspec:install
+bundle exec rails generate bootstrap:install --no-coffeescript
+bundle exec rails generate simple_form:install --bootstrap
+bundle exec rails generate rspec:install
+bundle exec guard init
+bundle exec guard init rspec
 
 SCAFFOLD_PATH=$SCRIPT_PATH"/files/scaffolding/html/*.*"
 cp $SCAFFOLD_PATH "lib/templates/erb/scaffold/."
 
-rails g scaffold user email:string crypted_password:string password_salt:string persistence_token:string --no-helper --no-assets --no-controller-specs --no-view-specs
+bundle exec rails g scaffold user email:string crypted_password:string password_salt:string persistence_token:string --no-helper --no-assets --no-controller-specs --no-view-specs
 
-rake db:create
-rake db:migrate
+bundle exec rake db:create
+bundle exec rake db:migrate
 
 cat $SCRIPT_PATH"/files/config/routes.rb" > config/routes.rb
 
