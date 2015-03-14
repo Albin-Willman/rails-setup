@@ -56,6 +56,10 @@ rm "app/assets/javascripts/application.js"
 ASSETS_PATH=$SCRIPT_PATH"/files/assets"
 cp -r $ASSETS_PATH "app/"
 
+rm -r spec
+SPEC_PATH=$SCRIPT_PATH"/files/spec"
+cp -r $SPEC_PATH "."
+
 echo "@import \"import\";" >> app/assets/stylesheets/bootstrap_and_overrides.css.less
 
 INITIALIZERS_PATH=$SCRIPT_PATH"/files/config/initializers"
