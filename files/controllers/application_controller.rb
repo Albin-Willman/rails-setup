@@ -16,8 +16,7 @@ class ApplicationController < ActionController::Base
 
   def require_user
     return true if current_user
-    store_location
-    flash[:error] = t('common.you_must_be_logged_in')
+    flash[:error] = 'You must be logged in'
     redirect_to new_user_session_url
     false
   end

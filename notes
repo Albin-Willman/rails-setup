@@ -1,8 +1,9 @@
 
 - [x] CRUD for users
 - [x] home_controller and landing_page
-- [ ] More advanced navbar
+- [x] More advanced navbar
 - [ ] Better layout of bash script using functions
 - [x] Include nifty js-plugins
 - [x] Variable for install-path
 - [x] intellegent script path
+- [ ] include guard and guard-rspec

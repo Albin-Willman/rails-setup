@@ -25,6 +25,7 @@ sed -i '' -- "s/DATABASE_PWD/$DB_PWD/g" config/database.yml
 
 rails generate bootstrap:install --no-coffeescript
 rails generate simple_form:install --bootstrap
+rails generate rspec:install
 
 SCAFFOLD_PATH=$SCRIPT_PATH"/files/scaffolding/html/*.*"
 cp $SCAFFOLD_PATH "lib/templates/erb/scaffold/."
