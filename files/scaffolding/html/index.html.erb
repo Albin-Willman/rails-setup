@@ -1,31 +1,33 @@
 <%% content_for :content do %>
-  <div class="container">
-    <h1>Listing <%= plural_table_name.capitalize %></h1>
-    <p>
-      <%%= link_to 'New <%= class_name %>', new_<%= singular_table_name %>_path %>
-    </p>
-    <table class="table table-striped">
-      <thead>
-        <tr>
-<% attributes.each do |attribute| -%>
-          <th><%= attribute.human_name %></th>
-<% end -%>
-          <th colspan="3"></th>
-        </tr>
-      </thead>
-
-      <tbody>
-        <%% @<%= plural_table_name %>.each do |<%= singular_table_name %>| %>
+  <section>
+    <div class="container">
+      <h1>Listing <%= plural_table_name.capitalize %></h1>
+      <p>
+        <%%= link_to 'New <%= class_name %>', new_<%= singular_table_name %>_path %>
+      </p>
+      <table class="table table-striped">
+        <thead>
           <tr>
-<% attributes.each do |attribute| -%>
-            <td><%%= <%= singular_table_name %>.<%= attribute.name %> %></td>
-<% end -%>
-            <td><%%= link_to 'Show', <%= singular_table_name %>_path(<%= singular_table_name %>) %></td>
-            <td><%%= link_to 'Edit', edit_<%= singular_table_name %>_path(<%= singular_table_name %>) %></td>
-            <td><%%= link_to 'Destroy', <%= singular_table_name %>, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  <% attributes.each do |attribute| -%>
+            <th><%= attribute.human_name %></th>
+  <% end -%>
+            <th colspan="3"></th>
           </tr>
-        <%% end %>
-      </tbody>
-    </table>
-  </div>
+        </thead>
+
+        <tbody>
+          <%% @<%= plural_table_name %>.each do |<%= singular_table_name %>| %>
+            <tr>
+  <% attributes.each do |attribute| -%>
+              <td><%%= <%= singular_table_name %>.<%= attribute.name %> %></td>
+  <% end -%>
+              <td><%%= link_to 'Show', <%= singular_table_name %>_path(<%= singular_table_name %>) %></td>
+              <td><%%= link_to 'Edit', edit_<%= singular_table_name %>_path(<%= singular_table_name %>) %></td>
+              <td><%%= link_to 'Destroy', <%= singular_table_name %>, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            </tr>
+          <%% end %>
+        </tbody>
+      </table>
+    </div>
+  </section>
 <%% end %>
