@@ -7,7 +7,7 @@ class UsersController < ApplicationController
 
   # GET /users/new
   def new
-    @user = User.new
+    @new_user = User.new
   end
 
   # GET /users/1/edit
@@ -16,18 +16,21 @@ class UsersController < ApplicationController
 
   # POST /users
   def create
-    @user = User.new(user_params)
-    if @user.save
-      redirect_to @user, notice: 'User was successfully created.'
+    @new_user = User.new(user_params)
+    if @new_user.save
+      redirect_to user_path, notice: 'User was successfully created.'
     else
       render :new
     end
   end
 
   def update
-    if @user.update(user_params)
-      redirect_to @user, notice: 'User was successfully updated.'
+    password_validation = params[:user][:password_validation]
+    valid_password = @user.valid_password?(password_validation)
+    if valid_password && @user.update(user_params)
+      redirect_to user_path, notice: 'User was successfully updated.'
     else
+      @user.errors.add(:password)
       render :edit
     end
   end
