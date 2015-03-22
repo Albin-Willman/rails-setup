@@ -14,8 +14,8 @@ rm Gemfile
 cp $SCRIPT_PATH"/files/Gemfile" .
 bundle install --without production
 git init
-git ignore tmp/**.*
-git ignore log/**.*
+echo 'tmp/**.*' >> .gitignore
+echo 'log/**.*' >> .gitignore
 
 cat $SCRIPT_PATH"/files/config/db_config" > config/database.yml
 
