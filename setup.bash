@@ -19,9 +19,10 @@ echo 'log/**.*' >> .gitignore
 
 cat $SCRIPT_PATH"/files/config/db_config" > config/database.yml
 
-sed -i '' -- "s/APP_NAME/$APP_NAME/g" config/database.yml
+sed -ie "s/APP_NAME/$APP_NAME/g" config/database.yml
 DB_PWD=`bash $SCRIPT_PATH/scripts/genpasswd.bash`
-sed -i '' -- "s/DATABASE_PWD/$DB_PWD/g" config/database.yml
+sed -ie "s/DATABASE_PWD/$DB_PWD/g" config/database.yml
+rm config/database.ymle
 
 bundle exec rails generate bootstrap:install --no-coffeescript
 bundle exec rails generate simple_form:install --bootstrap
