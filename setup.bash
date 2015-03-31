@@ -52,6 +52,9 @@ rm -r "app/views"
 VIEWS_PATH=$SCRIPT_PATH"/files/views"
 cp -r $VIEWS_PATH "app/"
 
+HELPERS_PATH=$SCRIPT_PATH"/files/helpers"
+cp -r $HELPERS_PATH "app/"
+
 rm "app/assets/stylesheets/application.css"
 rm "app/assets/javascripts/application.js"
 ASSETS_PATH=$SCRIPT_PATH"/files/assets"
