@@ -17,7 +17,7 @@ git init
 echo 'tmp/**.*' >> .gitignore
 echo 'log/**.*' >> .gitignore
 
-cat $SCRIPT_PATH"/files/config/db_config" > config/database.yml
+cat $SCRIPTPATH"/files/config/db_config" > config/database.yml
 
 sed -ie "s/APP_NAME/$APP_NAME/g" config/database.yml
 DB_PWD=`bash $SCRIPT_PATH/scripts/genpasswd.bash`
@@ -40,29 +40,18 @@ bundle exec rake db:migrate
 
 cat $SCRIPT_PATH"/files/config/routes.rb" > config/routes.rb
 
-rm -r "app/controllers"
-CONTROLLERS_PATH=$SCRIPT_PATH"/files/controllers"
-cp -r $CONTROLLERS_PATH "app"
-
-MODELS_PATH=$SCRIPT_PATH"/files/models"
-rm -r "app/models"
-cp -r $MODELS_PATH "app/"
-
-rm -r "app/views"
-VIEWS_PATH=$SCRIPT_PATH"/files/views"
-cp -r $VIEWS_PATH "app/"
-
-HELPERS_PATH=$SCRIPT_PATH"/files/helpers"
-cp -r $HELPERS_PATH "app/"
+REPLACE_SCRIPT=$SCRIPT_PATH/scripts/replace_folder.bash
+bash $REPLACE_SCRIPT "app/controllers" $SCRIPT_PATH"/files/controllers" "app/"
+bash $REPLACE_SCRIPT "app/models" $SCRIPT_PATH"/files/models" "app/"
+bash $REPLACE_SCRIPT "app/views" $SCRIPT_PATH"/files/views" "app/"
+bash $REPLACE_SCRIPT "app/helpers" $SCRIPT_PATH"/files/helpers" "app/"
+bash $REPLACE_SCRIPT "spec" $SCRIPT_PATH"/files/spec" "."
+rm -r test/
 
 rm "app/assets/stylesheets/application.css"
 rm "app/assets/javascripts/application.js"
 ASSETS_PATH=$SCRIPT_PATH"/files/assets"
 cp -r $ASSETS_PATH "app/"
-
-rm -r spec
-SPEC_PATH=$SCRIPT_PATH"/files/spec"
-cp -r $SPEC_PATH "."
 
 echo "@import \"import\";" >> app/assets/stylesheets/bootstrap_and_overrides.css.less
 
@@ -70,8 +59,5 @@ INITIALIZERS_PATH=$SCRIPT_PATH"/files/config/initializers"
 cp -r $INITIALIZERS_PATH config/.
 sed -i '' -- "s/USER_NAME/\"$USER\"/g" config/initializers/constants.rb
 
-rm -r test/
-
 git add .
-git commit -m "Initial commit"
-
+git commit -m "Initial commitby Albins RailsSetup"
