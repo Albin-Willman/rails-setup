@@ -4,6 +4,7 @@
 //= require_tree .
 
 $(document).ready(function(){
+  $('.js-datatable').DataTable();
   $.each($('.js-chosen'), function(){ initChosen($(this)); });
 });
 
