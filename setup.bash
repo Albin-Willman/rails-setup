@@ -17,7 +17,7 @@ git init
 echo 'tmp/**.*' >> .gitignore
 echo 'log/**.*' >> .gitignore
 
-cat $SCRIPTPATH"/files/config/db_config" > config/database.yml
+cat $SCRIPT_PATH"/files/config/db_config" > config/database.yml
 
 sed -ie "s/APP_NAME/$APP_NAME/g" config/database.yml
 DB_PWD=`bash $SCRIPT_PATH/scripts/genpasswd.bash`

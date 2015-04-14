@@ -6,13 +6,12 @@ default: &default
   reconnect: false
   pool: 5
   password: DATABASE_PWD
-  socket: /var/run/mysqld/mysqld.sock
+  socket: <%= db_socket %>
 
 development:
   <<: *default
   username: root
   database: APP_NAME_development
-  socket: <%= db_socket %>
   password:
 
 test:
