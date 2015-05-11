@@ -7,7 +7,7 @@
         <span class="icon-bar"></span>
       </button>
       <%= link_to root_path, class: 'navbar-brand' do %>
-        <%= image_tag "http://placehold.it/200x100&text=logo", class: 'logo' %>
+        <%= image_tag "http://placehold.it/200x100&text=#{Rails.application.class.parent_name}", class: 'logo' %>
       <% end %>
     </div>
 
